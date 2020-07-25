@@ -1,0 +1,723 @@
+
+<!doctype html>
+<!--[if IE 9]>
+<html class="no-js ie9" lang="en"> <![endif]-->
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="msvalidate.01" content="B5163518CBE4A854B63801277FE5E35C" />
+	<meta name="google-site-verification" content="ucqagxjVuq0lJZeLKs0F5AppzK111lNt3IoxU6mzlJE" />
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WK23PSS');</script>
+	<link rel="shortcut icon" href="https://neo4j.com/wp-content/themes/neo4jweb/favicon.ico" />
+		<link type="text/css" media="all" href="https://neo4j.com/wp-content/cache/autoptimize/css/autoptimize_e981d3fa5e3d3ed03d21626a68dca0ef.css" rel="stylesheet" /><link type="text/css" media="screen" href="https://neo4j.com/wp-content/cache/autoptimize/css/autoptimize_8918ce8943ff2963eab33feb708d097c.css" rel="stylesheet" /><title>O&#039;Reilly Graph Algorithms Book - Neo4j Graph Database Platform</title>
+	
+	<style>.async-hide { opacity: 0 !important }</style>
+<script>(function(a, s, y, n, c, h, i, d, e) { s.className += ' ' + y; h.start = 1 * new Date; h.end = i = function() { s.className = s.className.replace(RegExp(' ?' + y), '') }; (a[n] = a[n] || []).hide = h; setTimeout(function() { i(); h.end = null }, c); h.timeout = c; })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, { 'GTM-PNLTLM5': true });</script>
+<script type="text/javascript">(function(i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+// Allow Linker
+ga('create', 'UA-1192232-34', 'auto', { 'allowLinker': true });
+// Optimize snippet
+ga('require', 'GTM-PNLTLM5');
+ga('send', 'pageview');
+// Load the plugin.
+ga('require', 'linker');
+// Define which domains to autoLink.
+ga('linker:autoLink', ['neo4j.org', 'neo4j.com', 'neotechnology.com', 'graphdatabases.com', 'graphconnect.com']);
+// Capture user agent
+ga('set', 'dimension6', escape(navigator.userAgent));
+</script>
+<script>var _prum = [ ['id', '56c4c51eabe53da82429d2ab'], ['mark', 'firstbyte', (new Date()).getTime()] ]; (function() { var s = document.getElementsByTagName('script')[0], p = document.createElement('script'); p.async = 'async'; p.src = '//rum-static.pingdom.net/prum.min.js'; s.parentNode.insertBefore(p, s); })();</script>
+
+	
+<!-- This site is optimized with the Yoast SEO Premium plugin v12.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Get the O&#039;Reilly Graph Algorithms book with tips for over 20 practical graph algorithms and tips on enhancing machine learning accuracy and precision."/>
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://neo4j.com/graph-algorithms-book/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="O&#039;Reilly Graph Algorithms Book - Neo4j Graph Database Platform" />
+<meta property="og:description" content="Get the O&#039;Reilly Graph Algorithms book with tips for over 20 practical graph algorithms and tips on enhancing machine learning accuracy and precision." />
+<meta property="og:url" content="https://neo4j.com/graph-algorithms-book/" />
+<meta property="og:site_name" content="Neo4j Graph Database Platform" />
+<meta property="article:publisher" content="https://www.facebook.com/neo4j.graph.database" />
+<meta property="og:image" content="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190418104047/Social-AlgoFaceBook-LinkedIn-Biz.png" />
+<meta property="og:image:secure_url" content="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190418104047/Social-AlgoFaceBook-LinkedIn-Biz.png" />
+<meta property="og:image:width" content="1201" />
+<meta property="og:image:height" content="629" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Get the O&#039;Reilly Graph Algorithms book with tips for over 20 practical graph algorithms and tips on enhancing machine learning accuracy and precision." />
+<meta name="twitter:title" content="O&#039;Reilly Graph Algorithms Book - Neo4j Graph Database Platform" />
+<meta name="twitter:site" content="@neo4j" />
+<meta name="twitter:image" content="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190418104047/Social-AlgoFaceBook-LinkedIn-Biz.png" />
+<meta name="twitter:creator" content="@neo4j" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://neo4j.com/#organization","name":"Neo4j","url":"https://neo4j.com/","sameAs":["https://www.facebook.com/neo4j.graph.database","http://instagram.com/neo4j","https://www.linkedin.com/company/neo4j","https://www.youtube.com/neo4j","https://www.pinterest.com/neo4j/","https://twitter.com/neo4j"],"logo":{"@type":"ImageObject","@id":"https://neo4j.com/#logo","url":"https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20140926224303/neo4j_logo-facebook.png","width":1120,"height":584,"caption":"Neo4j"},"image":{"@id":"https://neo4j.com/#logo"}},{"@type":"WebSite","@id":"https://neo4j.com/#website","url":"https://neo4j.com/","name":"Neo4j Graph Database Platform","publisher":{"@id":"https://neo4j.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://neo4j.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://neo4j.com/graph-algorithms-book/#primaryimage","url":"https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190408145145/graph-algo-book-box.png","width":800,"height":418,"caption":"Free Download O'Reilly Graph Algorithms book"},{"@type":"WebPage","@id":"https://neo4j.com/graph-algorithms-book/#webpage","url":"https://neo4j.com/graph-algorithms-book/","inLanguage":"en-US","name":"O&#039;Reilly Graph Algorithms Book - Neo4j Graph Database Platform","isPartOf":{"@id":"https://neo4j.com/#website"},"primaryImageOfPage":{"@id":"https://neo4j.com/graph-algorithms-book/#primaryimage"},"datePublished":"2019-01-17T17:38:25+00:00","dateModified":"2019-04-26T06:58:15+00:00","description":"Get the O'Reilly Graph Algorithms book with tips for over 20 practical graph algorithms and tips on enhancing machine learning accuracy and precision."}]}</script>
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+
+
+
+
+<link rel='stylesheet' id='dashicons-css'  href='https://neo4j.com/wp-includes/css/dashicons.min.css?ver=5.2.4' type='text/css' media='all' />
+
+
+
+
+
+
+
+<script type='text/javascript' src='https://neo4j.com/wp-content/themes/neo4jweb/assets/js/vendor/jquery-3.3.1.min.js?ver=3.3.1'></script>
+<script type='text/javascript' src='https://neo4j.com/wp-content/themes/neo4jweb/assets/js/vendor/jquery-migrate-3.0.0.min.js?ver=3.0.0'></script>
+<link rel='https://api.w.org/' href='https://neo4j.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://neo4j.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://neo4j.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.2.4" />
+<link rel='shortlink' href='https://neo4j.com/?p=90782' />
+<link rel="alternate" type="application/json+oembed" href="https://neo4j.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fneo4j.com%2Fgraph-algorithms-book%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://neo4j.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fneo4j.com%2Fgraph-algorithms-book%2F&#038;format=xml" />
+<meta class="swiftype" name="published_at" data-type="date" content="2019-01-17T09:38:25-08:00" /><style type="text/css">/** Mega Menu CSS: fs **/</style>
+	
+		<meta class="swiftype" name="neo4j-site" data-type="enum" content="Main Site" />
+	<meta class="swiftype" name="main-search-priority" data-type="integer" content="3" />
+	
+</head>
+
+<body class="page-template page-template-landing-page-structured-auto page-template-landing-page-structured-auto-php page page-id-90782 mega-menu-menu-1 mega-menu-menu-2">
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK23PSS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+	<header role="banner" data-swiftype-index="false" class="global-header t-mega-menu-nav">
+    <!-- Skip links for accessibility with screen readers and keyboard users -->
+    <div class="container">
+        <div class="row">
+            <div class="column" style="position: relative;">
+                  <a class="skip-link" href="#content">Skip to content</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-bar-container row column show-for-large">
+
+        <div id="mega-menu-wrap-menu-2" class="mega-menu-wrap"><div class="mega-menu-toggle"><div class="mega-toggle-blocks-left"></div><div class="mega-toggle-blocks-center"></div><div class="mega-toggle-blocks-right"><div class='mega-toggle-block mega-menu-toggle-block mega-toggle-block-1' id='mega-toggle-block-1' tabindex='0'><span class='mega-toggle-label' role='button' aria-expanded='false'><span class='mega-toggle-label-closed'>MENU</span><span class='mega-toggle-label-open'>MENU</span></span></div></div></div><ul id="mega-menu-menu-2" class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js" data-event="hover" data-effect="disabled" data-effect-speed="200" data-effect-mobile="disabled" data-effect-speed-mobile="200" data-mobile-force-width="false" data-second-click="close" data-document-click="collapse" data-vertical-behaviour="standard" data-breakpoint="1024" data-unbind="true"><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-align-bottom-right mega-menu-flyout mega-menu-item-95787' id='mega-menu-item-95787'><a class="mega-menu-link" href="https://neo4j.com/company/" aria-haspopup="true" aria-expanded="false" tabindex="0">Company<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-97056' id='mega-menu-item-97056'><a class="mega-menu-link" href="https://neo4j.com/company/">About Us</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-95788' id='mega-menu-item-95788'><a class="mega-menu-link" href="/newsroom/">Newsroom</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-96983' id='mega-menu-item-96983'><a class="mega-menu-link" href="https://neo4j.com/awards/">Awards and Honors</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-96984' id='mega-menu-item-96984'><a class="mega-menu-link" href="https://neo4j.com/careers/">Careers</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-96985' id='mega-menu-item-96985'><a class="mega-menu-link" href="https://neo4j.com/staff/">Staff and Leadership</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-96986' id='mega-menu-item-96986'><a class="mega-menu-link" href="https://neo4j.com/style-guide/">Style Guide</a></li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-menu-item-105088' id='mega-menu-item-105088'><a class="mega-menu-link" href="https://support.neo4j.com" tabindex="0">Support</a></li><li class='mega-mm-divider-right mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-95786 mm-divider-right' id='mega-menu-item-95786'><a class="mega-menu-link" href="https://neo4j.com/contact-us/" tabindex="0">Contact Us  <!-- MKTO --></a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-menu-item-95785' id='mega-menu-item-95785'><div class='mega-search-wrap'><form class='mega-search expand-to-left mega-search-closed' role='search' action='https://neo4j.com/'>
+						<span class='dashicons dashicons-search search-icon'></span>
+						<input type='submit' value='Search'>
+						<input type='text' aria-label='Search...' data-placeholder='Search...' name='s'>
+						
+					</form></div></li></ul></div>
+    </div>
+
+    <div class="top-bar-container row column">
+        
+        <div id="mega-menu-wrap-menu-1" class="mega-menu-wrap"><div class="mega-menu-toggle"><div class="mega-toggle-blocks-left"><div class='mega-toggle-block mega-menu-toggle-animated-block mega-toggle-block-1' id='mega-toggle-block-1'><button aria-label="Toggle Menu" class="mega-toggle-animated mega-toggle-animated-slider" type="button" aria-expanded="false">
+                  <span class="mega-toggle-animated-box">
+                    <span class="mega-toggle-animated-inner"></span>
+                  </span>
+                </button></div></div><div class="mega-toggle-blocks-center"><div class='mega-toggle-block mega-logo-block mega-toggle-block-2' id='mega-toggle-block-2'><a class='mega-menu-logo' href='https://neo4j.com' target='_self'><img class='mega-menu-logo' src='https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j_logo-325x150.png' /></a></div></div><div class="mega-toggle-blocks-right"><div class='mega-toggle-block mega-search-block mega-toggle-block-3' id='mega-toggle-block-3'><div class='mega-search-wrap'><form class='mega-search expand-to-left mega-search-closed' action='https://neo4j.com/'>
+                        <span class='dashicons dashicons-search search-icon'></span>
+                        <input type='submit' value='Search'>
+                        <input type='text' aria-label='Search' data-placeholder='Search' name='s'>
+                        
+                    </form></div></div></div></div><ul id="mega-menu-menu-1" class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js" data-event="hover" data-effect="disabled" data-effect-speed="200" data-effect-mobile="disabled" data-effect-speed-mobile="200" data-mobile-force-width="false" data-second-click="close" data-document-click="collapse" data-vertical-behaviour="standard" data-breakpoint="1024" data-unbind="true"><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-item-align-float-left mega-hide-on-mobile mega-menu-item-95441' id='mega-menu-item-95441'><a class='mega-menu-link mega-menu-logo' href='/'><img class='mega-menu-logo' width='113' height='50' src='https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j_logo-325x150-113x50.png' srcset='https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j_logo-325x150-226x100.png 2x' /></a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-align-bottom-left mega-menu-tabbed mega-menu-megamenu mega-menu-item-95445' id='mega-menu-item-95445'><a class="mega-menu-link" href="https://neo4j.com/product/" aria-haspopup="true" aria-expanded="false" tabindex="0">Products <!-- The New 3.3 Prod Page --><span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-menu-item-95446' id='mega-menu-item-95446'><a class="mega-menu-link" href="/product/">The Neo4j Graph Platform<span class="mega-indicator"></span></a>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-row' id='mega-menu-95446-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-3-of-12' id='mega-menu-95446-0-0'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95448' id='mega-menu-item-95448'><a class="mega-custom-icon mega-menu-link" href="/neo4j-graph-database/">Neo4j Database</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-96325' id='mega-menu-item-96325'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/cypher-graph-query-language/">Cypher Query Language</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-96320' id='mega-menu-item-96320'><a class="mega-custom-icon mega-menu-link" href="/product/#desktop">Neo4j Desktop</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-98736' id='mega-menu-item-98736'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/bloom">Neo4j Bloom</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-96322' id='mega-menu-item-96322'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/graph-analytics/">Neo4j Graph Analytics</a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-3-of-12' id='mega-menu-95446-0-1'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-columns-1-of-6 mega-has-description mega-menu-item-96328' id='mega-menu-item-96328'><a class="mega-menu-link" href="/whats-new-in-neo4j/"><span class="mega-description-group"><span class="mega-menu-title">What's New in Neo4j 3.5</span><span class="mega-menu-description">See the latest in scalability, performance, and administration.</span></span></a></li><li class='mega-mm-offset-top mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-columns-1-of-6 mega-has-description mega-menu-item-95866 mm-offset-top' id='mega-menu-item-95866'><a class="mega-menu-link" href="/top-ten-reasons/"><span class="mega-description-group"><span class="mega-menu-title">Why Neo4j?</span><span class="mega-menu-description">Make sure you choose the right graph database for your project.</span></span></a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-6-of-12 mega-hide-on-mobile' id='mega-menu-95446-0-2'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget featured-post-widget mega-menu-item-featured_post_widget-7' id='mega-menu-item-featured_post_widget-7'>
+            <div class="c-featured-post-widget c-featured-post-widget--img-no-padding " style="background-image: url(  )">
+                <div class="c-featured-post-widget__top">
+                    <!-- <div class="c-featured-post-widget__copy-block"> -->
+                                                    <h4 class="c-featured-post-widget__title">
+                                                                Free Ebook: Graph Databases for Beginners                            </h4>
+                                                <img width="600" height="571" src="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712093504/beginners-cta-600x571.jpg" class="attachment-medium-large size-medium-large" alt="" srcset="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712093504/beginners-cta-600x571.jpg 600w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712093504/beginners-cta-150x143.jpg 150w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712093504/beginners-cta-300x285.jpg 300w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712093504/beginners-cta.jpg 631w" sizes="(max-width: 600px) 100vw, 600px" />                                                    <p class="c-featured-post-widget__summary">Learn the basics of graph technology, and why a connections-first approach to data enables powerful new applications.</p>
+                                            <!-- </div> -->
+
+                
+                </div>
+
+                <a class="c-featured-post-widget__link" href="/whitepapers/graph-databases-beginners-ebook-m/?ref=menu" target="_blank">
+                    Get Your Free Ebook                </a>
+            </div>
+
+        </li>			</ul>
+</li>		</ul>
+</li>	</ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-menu-item-95447' id='mega-menu-item-95447'><a class="mega-menu-link" href="/download/">Get Neo4j<span class="mega-indicator"></span></a>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-row' id='mega-menu-95447-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-mm-featured-col mega-menu-columns-4-of-12 mm-featured-col' id='mega-menu-95447-0-0'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-mm-download mega-menu-item-95449' id='mega-menu-item-95449'><a class="mega-custom-icon mega-menu-link" href="/download/"><span class="mega-description-group"><span class="mega-menu-title">Download Desktop</span><span class="mega-menu-description">Get Started with Neo4j on Your Desktop.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-mm-arrow mega-menu-item-95870' id='mega-menu-item-95870'><a class="mega-custom-icon mega-menu-link" href="/sandbox-v2/"><span class="mega-description-group"><span class="mega-menu-title">Try Neo4j Online</span><span class="mega-menu-description">Explore and Learn Neo4j with the Neo4j Sandbox.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-mm-arrow mega-menu-item-96329' id='mega-menu-item-96329'><a class="mega-custom-icon mega-menu-link" href="/neo4j-cloud-services/"><span class="mega-description-group"><span class="mega-menu-title">Neo4j in the Cloud</span><span class="mega-menu-description">Deploy Neo4j on the cloud platform of your choice.</span></span></a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-95447-0-1'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-96330' id='mega-menu-item-96330'><a class="mega-custom-icon mega-menu-link" href="/startup-program/"><span class="mega-description-group"><span class="mega-menu-title">Startup Program</span><span class="mega-menu-description">Kickstart your startup with Neo4j.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-96331' id='mega-menu-item-96331'><a class="mega-custom-icon mega-menu-link" href="/professional-services/"><span class="mega-description-group"><span class="mega-menu-title">Professional Services</span><span class="mega-menu-description">Build Enterprise-Strength with Neo4j Expertise.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-96332' id='mega-menu-item-96332'><a class="mega-custom-icon mega-menu-link" href="/subscriptions/"><span class="mega-description-group"><span class="mega-menu-title">Subscriptions</span><span class="mega-menu-description">Get the best Neo4j Subscription for your organization.</span></span></a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-95447-0-2'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-96333' id='mega-menu-item-96333'><a class="mega-custom-icon mega-menu-link" href="/licensing/"><span class="mega-description-group"><span class="mega-menu-title">Licensing Information</span><span class="mega-menu-description">Understand Neo4j Licenses.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-96335' id='mega-menu-item-96335'><a class="mega-custom-icon mega-menu-link" href="/open-source-project/"><span class="mega-description-group"><span class="mega-menu-title">Open Source</span><span class="mega-menu-description">Learn more about the Neo4j Open Source Project.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-96336' id='mega-menu-item-96336'><a class="mega-custom-icon mega-menu-link" href="/download-center/"><span class="mega-description-group"><span class="mega-menu-title">Download Center</span><span class="mega-menu-description">Find the latest downloads and drivers.</span></span></a></li>			</ul>
+</li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-align-bottom-left mega-menu-tabbed mega-menu-megamenu mega-menu-item-95791' id='mega-menu-item-95791'><a class="mega-menu-link" href="/use-cases/" aria-haspopup="true" aria-expanded="false" tabindex="0">Solutions<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-menu-item-95792' id='mega-menu-item-95792'><a class="mega-menu-link" href="/use-cases/">Use Cases<span class="mega-indicator"></span></a>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-row' id='mega-menu-95792-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-95792-0-0'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-solutions mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-95794' id='mega-menu-item-95794'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/use-cases/artificial-intelligence-analytics/"><span class="mega-description-group"><span class="mega-menu-title">Artificial Intelligence</span><span class="mega-menu-description">Connected data with machine learning and analytics solve enterprise challenges.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-solutions mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-95803' id='mega-menu-item-95803'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/use-cases/fraud-detection/"><span class="mega-description-group"><span class="mega-menu-title">Fraud Detection</span><span class="mega-menu-description">Combat fraud and money laundering in real-time.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-solutions mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-95797' id='mega-menu-item-95797'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/use-cases/identity-and-access-management/"><span class="mega-description-group"><span class="mega-menu-title">Identity &#038; Access Management  <!-- Solutions 2016 --></span><span class="mega-menu-description">Track all identity and access with substantial depth in real-time.</span></span></a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-95792-0-1'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-solutions mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-95802' id='mega-menu-item-95802'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/use-cases/knowledge-graph/"><span class="mega-description-group"><span class="mega-menu-title">Knowledge Graphs  <!-- Solutions 2016 --></span><span class="mega-menu-description">Improve search capabilities of product, services and content.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-solutions mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-95799' id='mega-menu-item-95799'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/use-cases/master-data-management/"><span class="mega-description-group"><span class="mega-menu-title">Master Data Management  <!-- Solutions 2016 --></span><span class="mega-menu-description">Build a 360° view of your customer, product, supplier and logistics information.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-solutions mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-95801' id='mega-menu-item-95801'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/use-cases/network-and-it-operations/"><span class="mega-description-group"><span class="mega-menu-title">Network & IT Operations</span><span class="mega-menu-description">Gain insight of your network and IT operations for network management.</span></span></a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-4-of-12 mega-hide-on-mobile' id='mega-menu-95792-0-2'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-solutions mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-95796' id='mega-menu-item-95796'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/use-cases/privacy-risk-compliance/"><span class="mega-description-group"><span class="mega-menu-title">Privacy, Risk and Compliance</span><span class="mega-menu-description">Manage risk while leveraging connected data to drive better business intelligence.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-solutions mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-95800' id='mega-menu-item-95800'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/use-cases/real-time-recommendation-engine/"><span class="mega-description-group"><span class="mega-menu-title">Real-Time Recommendations</span><span class="mega-menu-description">Power recommendations with data connected from logistics to customer data.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-solutions mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-menu-item-95798' id='mega-menu-item-95798'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/use-cases/social-network/"><span class="mega-description-group"><span class="mega-menu-title">Social Networking</span><span class="mega-menu-description">Create innovative social networks into your enterprise applications.</span></span></a></li>			</ul>
+</li>		</ul>
+</li>	</ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-menu-item-95793' id='mega-menu-item-95793'><a class="mega-menu-link" href="/industries/?ref=menu">Featured Industries<span class="mega-indicator"></span></a>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-row' id='mega-menu-95793-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-95793-0-0'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-industries mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95857' id='mega-menu-item-95857'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/industries/financial-services/">Financial Services</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-industries mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95856' id='mega-menu-item-95856'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/industries/government/">Government</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-industries mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95860' id='mega-menu-item-95860'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/industries/retail/">Retail</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-industries mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95859' id='mega-menu-item-95859'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/industries/telecom/">Telecommunications</a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-6-of-12 mega-hide-on-mobile' id='mega-menu-95793-0-1'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget featured-post-widget mega-menu-item-featured_post_widget-6' id='mega-menu-item-featured_post_widget-6'>
+            <div class="c-featured-post-widget c-featured-post-widget--img-no-padding " style="background-image: url(  )">
+                <div class="c-featured-post-widget__top">
+                    <!-- <div class="c-featured-post-widget__copy-block"> -->
+                                                    <h4 class="c-featured-post-widget__title">
+                                                                Free O&#039;Reilly Book: Graph Algorithms                            </h4>
+                                                <img width="600" height="592" src="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712120739/algo-cta-600x592.jpg" class="attachment-medium-large size-medium-large" alt="" srcset="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712120739/algo-cta-600x592.jpg 600w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712120739/algo-cta-150x148.jpg 150w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712120739/algo-cta-300x296.jpg 300w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712120739/algo-cta.jpg 762w" sizes="(max-width: 600px) 100vw, 600px" />                                                    <p class="c-featured-post-widget__summary">Graph Algorithms: Practical Examples in Apache Spark and Neo4j illustrates how graph algorithms deliver value, with hands-on examples and sample code for more than 20 algorithms.</p>
+                                            <!-- </div> -->
+
+                
+                </div>
+
+                <a class="c-featured-post-widget__link" href="/graph-algorithms-book/?ref=menu" target="">
+                    Get Your Free Copy Now                </a>
+            </div>
+
+        </li>			</ul>
+</li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-align-bottom-left mega-menu-tabbed mega-menu-megamenu mega-menu-item-98116' id='mega-menu-item-98116'><a class="mega-menu-link" href="/customers/" aria-haspopup="true" aria-expanded="false" tabindex="0">Customers<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-megamenu mega-hide-sub-menu-on-mobile mega-menu-item-95784' id='mega-menu-item-95784'><a class="mega-menu-link" href="https://neo4j.com/customers/">Featured Customers<span class="mega-indicator"></span></a>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-row' id='mega-menu-95784-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-8-of-12' id='mega-menu-95784-0-0'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget featured-customers-widget mega-menu-item-featured_customers_widget-2' id='mega-menu-item-featured_customers_widget-2'>            <ul class="c-featured-customers-widget">
+                              <li class="c-featured-customers-widget__item">
+                  <a class="c-featured-customers-widget__link" href="https://neo4j.com/users/ubs/">
+                    <div class="c-featured-customers-widget__image" style="background-image: url( https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20170216210245/ubs1.png )"></div>
+                  </a>
+                </li>
+                              <li class="c-featured-customers-widget__item">
+                  <a class="c-featured-customers-widget__link" href="https://neo4j.com/case-studies/ebay/">
+                    <div class="c-featured-customers-widget__image" style="background-image: url( https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20181205033939/neo4j-case-study-ebay.png )"></div>
+                  </a>
+                </li>
+                              <li class="c-featured-customers-widget__item">
+                  <a class="c-featured-customers-widget__link" href="https://neo4j.com/users/nasa/">
+                    <div class="c-featured-customers-widget__image" style="background-image: url( https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20170630194935/NASA_gen.png )"></div>
+                  </a>
+                </li>
+                              <li class="c-featured-customers-widget__item">
+                  <a class="c-featured-customers-widget__link" href="https://neo4j.com/users/walmart/">
+                    <div class="c-featured-customers-widget__image" style="background-image: url( https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20170213180443/walmart1.png )"></div>
+                  </a>
+                </li>
+                              <li class="c-featured-customers-widget__item">
+                  <a class="c-featured-customers-widget__link" href="https://neo4j.com/case-studies/german-centre-diabetes-research-dzd/">
+                    <div class="c-featured-customers-widget__image" style="background-image: url( https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20181023063056/Neo4j-case-study-German-Center-Diabetes-Research-DZD.png )"></div>
+                  </a>
+                </li>
+                              <li class="c-featured-customers-widget__item">
+                  <a class="c-featured-customers-widget__link" href="https://neo4j.com/case-studies/icij/">
+                    <div class="c-featured-customers-widget__image" style="background-image: url( https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20170710152815/icij1.png )"></div>
+                  </a>
+                </li>
+                          </ul>
+          
+                      <a class="c-featured-customers-widget__cta-link" href="https://neo4j.com/customers/" target="_self">
+               Browse our customers            </a>
+          
+        </li>			</ul>
+</li><li class='mega-menu-column mega-mm-divider-left mega-menu-columns-4-of-12 mega-hide-on-mobile mm-divider-left' id='mega-menu-95784-0-1'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget featured-post-widget mega-menu-item-featured_post_widget-2' id='mega-menu-item-featured_post_widget-2'>
+            <div class="c-featured-post-widget c-featured-post-widget--img-background " style="background-image: url( https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190712111520/lockheed-orion-cta.jpg )">
+                <div class="c-featured-post-widget__top">
+                    <!-- <div class="c-featured-post-widget__copy-block"> -->
+                                                    <h4 class="c-featured-post-widget__title">
+                                                                Case Study: Lockheed Martin                            </h4>
+                                                                                            <!-- </div> -->
+
+                
+                </div>
+
+                <a class="c-featured-post-widget__link" href="https://neo4j.com/case-studies/lockheed-martin-space/?ref=menu" target="">
+                    Download the Case Study                </a>
+            </div>
+
+        </li>			</ul>
+</li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-align-bottom-left mega-menu-tabbed mega-menu-megamenu mega-menu-item-95807' id='mega-menu-item-95807'><a class="mega-menu-link" href="/partners/" aria-haspopup="true" aria-expanded="false" tabindex="0">Partners<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-menu-item-98107' id='mega-menu-item-98107'><a class="mega-menu-link" href="/partners/">Neo4j Partner Program<span class="mega-indicator"></span></a>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-row' id='mega-menu-98107-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-8-of-12' id='mega-menu-98107-0-0'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95808' id='mega-menu-item-95808'><a class="mega-custom-icon mega-menu-link" href="/partners/">Find a Partner</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95809' id='mega-menu-item-95809'><a class="mega-custom-icon mega-menu-link" href="/partners/neo4j-partner-program/">Become a Partner</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95810' id='mega-menu-item-95810'><a class="mega-custom-icon mega-menu-link" href="/partners/oem-partner/">OEM Partners</a></li>			</ul>
+</li><li class='mega-menu-column mega-mm-divider-left mega-menu-columns-4-of-12 mm-divider-left' id='mega-menu-98107-0-1'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-columns-1-of-6 mega-has-description mega-mm-upload-button mega-menu-item-95811' id='mega-menu-item-95811'><a class="mega-menu-link" href="https://partner.neo4j.com/"><span class="mega-description-group"><span class="mega-menu-title">Partner Portal Login</span><span class="mega-menu-description">Login or Join to gain access to the Neo4j portal.</span></span></a></li>			</ul>
+</li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-align-bottom-left mega-menu-tabbed mega-menu-megamenu mega-menu-item-95815' id='mega-menu-item-95815'><a class="mega-menu-link" href="/resources/" aria-haspopup="true" aria-expanded="false" tabindex="0">Resources<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-menu-item-95816' id='mega-menu-item-95816'><a class="mega-menu-link" href="/resources/">Featured Resources<span class="mega-indicator"></span></a>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-row' id='mega-menu-95816-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-95816-0-0'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95825' id='mega-menu-item-95825'><a class="mega-custom-icon mega-menu-link" href="/blog/">Blog</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95828' id='mega-menu-item-95828'><a class="mega-custom-icon mega-menu-link" href="/resources/">Resources Library</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95827' id='mega-menu-item-95827'><a class="mega-custom-icon mega-menu-link" href="/business-edge/">Business Edge</a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-95816-0-1'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95826' id='mega-menu-item-95826'><a class="mega-custom-icon mega-menu-link" href="/books/">Books</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-97922' id='mega-menu-item-97922'><a class="mega-custom-icon mega-menu-link" href="/webinars/">Webinars</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95829' id='mega-menu-item-95829'><a target="_blank" class="mega-custom-icon mega-menu-link" rel="noopener noreferrer nofollow" href="https://www.youtube.com/neo4j">Videos</a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-95816-0-2'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-columns-1-of-6 mega-has-description mega-menu-item-97919' id='mega-menu-item-97919'><a class="mega-menu-link" href="https://neo4j.com/why-graph-databases/"><span class="mega-description-group"><span class="mega-menu-title">Why Graph Databases?</span><span class="mega-menu-description">Learn the fundamentals of graph databases and how connected data transforms business.</span></span></a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-columns-1-of-6 mega-has-description mega-menu-item-97920' id='mega-menu-item-97920'><a class="mega-menu-link" href="/developer/graph-db-rdbms/"><span class="mega-description-group"><span class="mega-menu-title">Graph Databases vs RDBMS</span><span class="mega-menu-description">Concepts of graph databases from a relational developer’s point of view.</span></span></a></li>			</ul>
+</li>		</ul>
+</li>	</ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-menu-item-95817' id='mega-menu-item-95817'><a class="mega-menu-link" href="/events">Events<span class="mega-indicator"></span></a>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-row' id='mega-menu-95817-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-95817-0-0'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-96339' id='mega-menu-item-96339'><a class="mega-custom-icon mega-menu-link" href="/graphtour/">GraphTour</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-96338' id='mega-menu-item-96338'><a target="_blank" class="mega-custom-icon mega-menu-link" rel="noopener noreferrer nofollow" href="https://graphconnect.com/">GraphConnect</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95834' id='mega-menu-item-95834'><a class="mega-custom-icon mega-menu-link" href="/events/">Events Calendar</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-96337' id='mega-menu-item-96337'><a class="mega-custom-icon mega-menu-link" href="/webinars/">Neo4j Webinars</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-97914' id='mega-menu-item-97914'><a class="mega-custom-icon mega-menu-link" href="https://www.meetup.com/topics/neo4j/">Local Meetups</a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-7-of-12 mega-hide-on-mobile' id='mega-menu-95817-0-1'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget featured-post-widget mega-menu-item-featured_post_widget-4' id='mega-menu-item-featured_post_widget-4'>
+            <div class="c-featured-post-widget c-featured-post-widget--img-fullwidth " style="background-image: url(  )">
+                <div class="c-featured-post-widget__top">
+                    <!-- <div class="c-featured-post-widget__copy-block"> -->
+                                                <img width="600" height="200" src="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190827090725/graphtour_promo-600x200.jpg" class="attachment-medium-large size-medium-large" alt="" srcset="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190827090725/graphtour_promo-600x200.jpg 600w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190827090725/graphtour_promo-150x50.jpg 150w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190827090725/graphtour_promo-300x100.jpg 300w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190827090725/graphtour_promo-768x256.jpg 768w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190827090725/graphtour_promo.jpg 900w" sizes="(max-width: 600px) 100vw, 600px" />                                            <!-- </div> -->
+
+                
+                </div>
+
+                <a class="c-featured-post-widget__link" href="/graphtour/?ref=menu" target="">
+                    GraphTour 2019 Brings Neo4j to a City Near You - Register Today!                </a>
+            </div>
+
+        </li>			</ul>
+</li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-align-bottom-left mega-menu-tabbed mega-menu-megamenu mega-menu-item-97909' id='mega-menu-item-97909'><a class="mega-menu-link" href="/developer/" aria-haspopup="true" aria-expanded="false" tabindex="0">Developers<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-menu-item-97912' id='mega-menu-item-97912'><a class="mega-menu-link" href="/developer/">Developer Resources<span class="mega-indicator"></span></a>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-row' id='mega-menu-97912-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-97912-0-0'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-3-of-6 mega-menu-item-96341' id='mega-menu-item-96341'><a class="mega-custom-icon mega-menu-link" href="/docs/">Neo4j Documentation</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-97911' id='mega-menu-item-97911'><a class="mega-custom-icon mega-menu-link" href="/developer/">Developer Guides</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-97915' id='mega-menu-item-97915'><a class="mega-custom-icon mega-menu-link" href="/sandbox/">Online Sandbox</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-97910' id='mega-menu-item-97910'><a class="mega-custom-icon mega-menu-link" href="/download-center/">Download Server and Drivers</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-clear mega-menu-item-97918' id='mega-menu-item-97918'><a class="mega-custom-icon mega-menu-link" href="/labs/">Neo4j Labs</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-96343' id='mega-menu-item-96343'><a class="mega-custom-icon mega-menu-link" href="/graphgists/">Sample Graphs - GraphGists</a></li>			</ul>
+</li><li class='mega-menu-column mega-mm-featured-col mega-megamenu-graphacademy mega-menu-columns-4-of-12 mm-featured-col megamenu-graphacademy' id='mega-menu-97912-0-1'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-2' id='mega-menu-item-custom_html-2'><div class="textwidget custom-html-widget"><a href="/graphacademy/"><div style="font-size: 18px;font-weight: 800; color: #777;">Neo4j Training</div></a></div></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-95830' id='mega-menu-item-95830'><a class="mega-custom-icon mega-menu-link" href="/graphacademy/">GraphAcademy</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-100915' id='mega-menu-item-100915'><a class="mega-custom-icon mega-menu-link" href="/graphacademy/online-training/">Online Training</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-100916' id='mega-menu-item-100916'><a class="mega-custom-icon mega-menu-link" href="/graphacademy/neo4j-certification/">Neo4j Certification</a></li>			</ul>
+</li><li class='mega-menu-column mega-mm-divider-left mega-menu-columns-4-of-12 mm-divider-left' id='mega-menu-97912-0-2'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget featured-post-widget mega-menu-item-featured_post_widget-8' id='mega-menu-item-featured_post_widget-8'>
+            <div class="c-featured-post-widget c-featured-post-widget--img-no-padding " style="background-image: url(  )">
+                <div class="c-featured-post-widget__top">
+                    <!-- <div class="c-featured-post-widget__copy-block"> -->
+                                                    <h4 class="c-featured-post-widget__title">
+                                                                 Neo4j Online Community                            </h4>
+                                                <img width="508" height="360" src="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190507133657/menu-community-pic.jpg" class="attachment-medium-large size-medium-large" alt="Join the Neo4j Community" srcset="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190507133657/menu-community-pic.jpg 508w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190507133657/menu-community-pic-150x106.jpg 150w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190507133657/menu-community-pic-300x213.jpg 300w" sizes="(max-width: 508px) 100vw, 508px" />                                                    <p class="c-featured-post-widget__summary">Connect, contribute, and collaborate! Get  technical help, share your projects, and more!</p>
+                                            <!-- </div> -->
+
+                
+                </div>
+
+                <a class="c-featured-post-widget__link" href="/community/" target="_blank">
+                    Login or Sign Up Now!                </a>
+            </div>
+
+        </li>			</ul>
+</li>		</ul>
+</li>	</ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-menu-item-95818' id='mega-menu-item-95818'><a class="mega-menu-link" href="/community/">Stay Connected<span class="mega-indicator"></span></a>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-row' id='mega-menu-95818-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-95818-0-0'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-97916' id='mega-menu-item-97916'><a class="mega-custom-icon mega-menu-link" href="https://neo4j.com/tag/twin4j/">Developer News</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-97917' id='mega-menu-item-97917'><a class="mega-custom-icon mega-menu-link" href="https://medium.com/neo4j">Developer Blog</a></li>			</ul>
+</li><li class='mega-menu-column mega-menu-columns-4-of-12 mega-hide-on-mobile' id='mega-menu-95818-0-1'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-97913' id='mega-menu-item-97913'><a class="mega-custom-icon mega-menu-link" href="https://www.meetup.com/topics/neo4j/">Local Meetups</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-menu-item-96340' id='mega-menu-item-96340'><a target="_blank" class="mega-custom-icon mega-menu-link" rel="noopener noreferrer nofollow" href="https://www.meetup.com/Neo4j-Online-Meetup/">Online Meetups</a></li>			</ul>
+</li><li class='mega-menu-column mega-mm-divider-left mega-menu-columns-4-of-12 mm-divider-left' id='mega-menu-95818-0-2'>
+			<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-columns-1-of-6 mega-has-description mega-mm-upload-button mega-menu-item-95843' id='mega-menu-item-95843'><a target="_blank" class="mega-custom-icon mega-menu-link" rel="noopener noreferrer nofollow" href="https://community.neo4j.com/"><span class="mega-description-group"><span class="mega-menu-title">Online Community Login</span><span class="mega-menu-description">Login or join now!</span></span></a></li>			</ul>
+</li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-button mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-menu-item-98247 menu-button' id='mega-menu-item-98247'><a class="mega-menu-link" href="/download/" tabindex="0">Download Neo4j</a></li></ul></div>
+    </div>    
+
+</header>
+<style>
+    .js-warning {
+      background-color: red;
+      color: white !important;
+      text-align: center;
+      padding: 10px;
+      border: 1px solid white;
+    }
+</style>
+<noscript data-swiftype-index='false'>
+    <h3 class="js-warning">Warning: JavaScript is disabled on your browser. Parts of Neo4j.com will not work properly.</h3>
+</noscript>
+
+
+<style>
+  #mkto_iframe {
+    height: 800px;
+  }
+  .lp__description li {
+    line-height: 168%;
+  }
+  header.global-header--lp {
+    border-bottom: 1px solid #dadada;
+  }
+  .lp__title {
+    line-height: 120%;
+    letter-spacing: -.001em;
+    margin-bottom: 7px;
+  }
+</style>
+
+
+
+
+    
+    <style>
+
+.lp__related p {
+  line-height: 160%;
+  margin-bottom: 0;
+}
+
+.lp__related-link {
+  font-weight: 500;
+}
+
+#mkto_iframe {
+  height: 800px;
+}
+
+.lp__description li {
+  line-height: 168%;
+}
+
+header.global-header--lp {
+  border-bottom: 1px solid #dadada;
+}
+
+.lp__title {
+  line-height: 120%;
+  letter-spacing: -.001em;
+  margin-bottom: 7px;
+}
+
+.lp__testimonial {
+  margin-top: 40px;
+}
+
+.lp__heading.mobile,
+.lp__title.mobile {
+  display: none;
+}
+  
+.lp__related-thumb-wrap {
+  margin-bottom: 10px;
+  border: 1px solid #c5c5c5;
+}
+
+@media screen and (min-width: 40em) {
+  .lp__description {
+    margin-bottom: 0px;
+    padding-bottom: 40px;
+  }
+}
+
+@media print, screen and (min-width: 64em) {
+  .global-header {
+    border-bottom: 1px solid #d5d5d5;
+  }
+  .lp__main {
+    padding-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .mktoForm .mktoFieldWrap {
+    width: 95%;
+  }
+  .mktoFormRow[data-wrapper-for="FirstName"],
+  .mktoFormRow[data-wrapper-for="LastName"] {
+    margin-right: 5px;
+    width: 45%;
+  }
+}
+
+@media print, screen and (max-width: 414px) {
+  .lp__aside--thank-you {
+    padding-top: 30px;
+    padding-bottom: 3rem;
+  }  
+  .lp__embed-wrap {
+    display: none;
+  }
+  /* .lp__heading,
+  .lp__title {
+    display: none;
+  } */
+  /* .lp__heading.mobile,
+  .lp__title.mobile {
+    display: block;
+  } */
+  .lp__form-wrap iframe {
+    width: 350px;
+  }
+  .lp__header {
+    padding-top: 20px;
+  }
+  .lp__related-thumb-wrap {
+    margin-bottom: 6px;
+  }
+  .lp__related {
+    margin-top: 38px;
+  }
+  .lp__aside .lp__subhead {
+    margin-bottom: 3px;
+    margin-top: 3px;
+  }
+  .lp__related p {
+    margin-bottom: 4px;
+  }
+  .lp__subhead {
+    font-size: 1.1rem;
+  }
+  .lp__cta-before-download-links {
+    margin-bottom: 0px;
+  }
+  @media (max-width: 375px) {
+    iframe#mkto_iframe {
+      max-width: 350px;
+    }
+    #FirstName {
+      width: 50%;
+    }
+    #LastName {
+      width: 50%;
+    }
+  }
+  
+</style>
+	<main id="post-90782" role="main" class="flexible-content lp lp--form-top post-90782 page type-page status-publish has-post-thumbnail hentry">
+        <div class="lp__col1-wrap">
+            <header class="lp__header">
+                <small class="lp__title-prefix">Free Ebook</small>
+                <img width="610" height="800" src="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190326120839/OReilly-Graph-Algorithms_v2_ol1.jpg" class="lp__cover-img" alt="" srcset="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190326120839/OReilly-Graph-Algorithms_v2_ol1.jpg 610w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190326120839/OReilly-Graph-Algorithms_v2_ol1-114x150.jpg 114w, https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20190326120839/OReilly-Graph-Algorithms_v2_ol1-229x300.jpg 229w" sizes="(max-width: 610px) 100vw, 610px" />                <h1 class="lp__title">Graph Algorithms: Practical Examples in Apache Spark and Neo4j</h1>
+
+                                    <h2 class="sr-only">Specs</h2>
+                    <div class="lp__meta-group">
+
+                                                    <p class="lp__publish"><span>By</span> Mark Needham & Amy E. Hodler</p>
+                        
+                                                    <p class="lp__publish"><span>Published by</span> O&#039;Reilly Media</p>
+                        
+                    </div>
+                
+                <div class="lp__meta-group">
+
+                                            <p class="lp__spec"><span>Print Length:</span> 250 pages</p>
+                    
+                                            <p class="lp__spec"><span>Available Formats:</span> PDF US, iBooks, Kindle</p>
+                    
+                </div>
+
+                <!-- hook for appendAround.js to move text into header so it will wrap around thumbnail -->
+                <div class="lp__summary-parent-a" data-set="lp-summary-parent"></div> 
+            </header>   
+        </div><!-- .col-wrap -->
+
+        <!-- this setup to move copy to header on desktop so that it will wrap around thumbnail. It is here so form can be inserted before it on mobile -->
+                  <section class="lp__summary lp__summary-parent-b" data-set="lp-summary-parent">
+              <div class="js-lp-summary">
+                  <h2 class="sr-only">Summary</h2>
+                  <p>Whether you are building dynamic network models or forecasting real-world behavior, this book illustrates how graph algorithms deliver value: from finding vulnerabilities and bottlenecks to detecting communities and improving machine learning predictions.</p>
+<p>We walk you through hands-on examples of how to use graph algorithms in Apache Spark and Neo4j. We include sample code and tips for over 20 practical graph algorithms that cover optimal pathfinding, importance through centrality, and community detection using methods like clustering and partitioning. Read this book to:</p>
+              </div>
+          </section>
+        
+        <section class="lp__col2">
+            <div class="lp__form-wrap">
+                <h2 class="lp__heading">Download Your Free Copy of O&#039;Reilly’s Graph Algorithms</h2> 
+                <iframe id="mkto_iframe" src="https://go.neo4j.com/WBC-BK-Graph-Algorithms.html?utm_source=markhneedham.com" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </section>
+
+        <div class="lp__main">
+          
+            <section class="lp__description">
+                <ul>
+<li>Learn how graph analytics vary from conventional statistical analysis</li>
+<li>Understand how classic graph algorithms work and how they are applied</li>
+<li>Dive into popular algorithms like PageRank, Label Propagation and Louvain Modularity to find out how subtle parameters impact results</li>
+<li>Get guidance on which algorithms to use for different types of questions</li>
+<li>Explore graph algorithm examples with working code and sample datasets for both Spark and Neo4j</li>
+<li>See how connected feature extraction increases machine learning accuracy and precision</li>
+<li>Walk through creating an ML workflow for link prediction combining Neo4j and Spark</li>
+</ul>
+<p>Fill out the form for your free copy of <em>Graph Algorithms: Practical Examples in Apache Spark and Neo4j</em> by Mark Needham and Amy E. Hodler.</p>
+            </section>
+
+                            <section class="lp__testimonial">
+                    <h2 class="sr-only">Quotation</h2>
+                    <blockquote class="lp__quote">
+                        <p>A practical and informative guide to gaining insights on connected data by detecting patterns and structures with graph algorithms. This book is a must-read for developers working with graph databases.</p>
+                        — <em>Luanne Misquitta, VP of Engineering, GraphAware</em>
+                    </blockquote>
+                </section>
+                      
+        </div>
+
+        <aside class="lp__aside">
+            <div class="lp__aside-inner">
+                <h3 class="lp__subhead">Neo4j is the #1 Platform for Connected Data</h3>
+                <p>The Neo4j Graph Platform takes a connections-first approach to data. It broadens a company’s ability recognize the importance of persisting relationships and connections through every transition of existence: from idea, to design in a logical model, to implementation in a physical model, to operation using a query language and to persistence within a scalable, reliable database.</p>
+            </div>
+        </aside>
+	</main>
+
+<footer data-swiftype-index="false" class="lp__footer">
+	<div class="row">
+		<div class="columns">
+			<p class="lp__copyright">&copy; 2019 Neo4j, Inc.</p>
+			<nav class="lp__site-links">
+				<a href="/terms">Terms</a> | <a href="/privacy-policy">Privacy</a> | <a href="/sitemap">Sitemap</a>
+			</nav>
+		</div>
+	</div>
+</footer>
+<a class="exit-off-canvas"></a>
+</div>
+</div>
+<script type='text/javascript' src='https://neo4j.com/wp-includes/js/hoverIntent.min.js?ver=1.8.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var megamenu = {"timeout":"300","interval":"100"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://neo4j.com/wp-content/plugins/megamenu/js/maxmegamenu.js?ver=2.7.1.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var neo_sts_params = {"engineKey":"wv4pczb-fro-K3xZczof"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://neo4j.com/wp-content/themes/neo4jweb/assets/js/dist.min.js?ver=20191007-1736'></script>
+<script type="text/plain" src="https://neo4j.com/wp-content/themes/neo4jweb/assets/js/neo_cookies.js?ver=20190607-1429" data-cookieconsent="marketing"></script>
+<script type='text/javascript' src='https://neo4j.com/wp-content/themes/neo4jweb/assets/js/vendor/appendAround.js?ver=20190911-1147'></script>
+<script type='text/javascript' src='https://neo4j.com/wp-content/plugins/megamenu-pro/assets/public.js?ver=1.9'></script>
+<script type='text/javascript' src='https://neo4j.com/wp-includes/js/wp-embed.min.js?ver=5.2.4'></script>
+<script>
+// @todo confirm that this can be removed
+// jQuery(document).foundation({
+//  tab: {
+//    callback : function (tab) {
+//      $(window).trigger('resize');
+//    }
+//  }
+// });
+</script>
+
+
+
+
+    <script>
+      // for auto-adjusting the height of the iframe window
+      var my_height_data;
+      window.addEventListener('message', function(event) {
+        // Ignores messages from untrusted domains.
+        if (event.origin != 'https://go.neo4j.com' && event.origin != 'https://info.neo4j.com') return;
+        my_height_data = event.data;
+        if(my_height_data.indexOf('px') !== -1) {
+           my_height_data = parseInt(my_height_data);
+           $('iframe#mkto_iframe').height(my_height_data);
+        }
+      });
+    </script>
+
+    
+ <!-- end of if is_singular etc -->
+
+<script>
+    function toggle_menu(){
+        $('.global-header.t-mega-menu-nav').toggle();
+        $('.global-header.control-menu').toggle();
+    }
+</script>
+
+<!-- Send GA ClientID to Marketo iframe --> 
+<script>
+  jQuery('#mkto_iframe').load(function() {
+    ga('create', 'UA-1192232-34', 'auto');
+      ga(function(tracker) {
+        var clientId = tracker.get('clientId');
+        var frameWindow = document.getElementById('mkto_iframe').contentWindow;
+        frameWindow.postMessage(clientId, 'https://go.neo4j.com');
+      });
+ });
+</script>
+
+</body>
+</html>
+
+<script>
+    /* Call appendAround */
+    $( ".js-lp-summary" ).appendAround();
+</script>
+
+<!-- Dynamic page generated in 0.464 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-11-05 13:29:54 -->
+
+<!-- Compression = gzip -->
