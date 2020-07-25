@@ -62,6 +62,10 @@ The basic system requirements/specifications are:
   3. Next, type the number of urls n, to be entered, in the next line.
   4. In the next n lines, type the urls line by line.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/44416769/88453083-91c60c00-ce81-11ea-8fcd-b3f453fa042e.png" title="Input text file for Downloading URLs with mode input as 0 and 10 URLs">
+</p>
+
 * For Web Crawling and downloading URLs (Mode 1):
   1. Create a text file named "urls.txt".
   2. Type the character '1' in the first line of the file indicating the mode of the method.
