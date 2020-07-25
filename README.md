@@ -71,6 +71,10 @@ The basic system requirements/specifications are:
   2. Type the character '1' in the first line of the file indicating the mode of the method.
   3. Next, type the number of hops n, to be entered, in the next line.
   4. Starting from the next line, type the urls line by line. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/44416769/88453352-c1761380-ce83-11ea-9021-6cce89f81167.png" title="Input text file for Web Crawling and Downloading URLs with mode input as 1 and 2 URLs with 2 hops">
+</p>
   
 * Create a temporary folder for downloading all the URLs in it.
 * Replace the given paths for the file 'urls.txt' and 'temp' folder in the given codes.
