@@ -63,7 +63,7 @@ The basic system requirements/specifications are:
   4. In the next n lines, type the urls line by line.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/44416769/88453083-91c60c00-ce81-11ea-8fcd-b3f453fa042e.png" title="Input text file for Downloading URLs with mode input as 0 and 10 URLs">
+  <img src="https://user-images.githubusercontent.com/44416769/88453116-f41f0c80-ce81-11ea-9af3-7b4354e956de.png" title="Input text file for Downloading URLs with mode input as 0 and 10 URLs">
 </p>
 
 * For Web Crawling and downloading URLs (Mode 1):
